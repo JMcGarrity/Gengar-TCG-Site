@@ -1,0 +1,148 @@
+/*
+  PURPOSE: Purple/red Gengar-inspired theme.
+  Core layout uses CSS Grid for the card tiles, same pattern as the
+  pricing-cards practice exercise, but with auto-fill columns so it
+  responds to any number of cards without a fixed breakpoint count.
+*/
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #1a0d2e; /* deep purple background, Gengar-ish */
+  color: #f5f0fa;
+}
+
+.app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.hero {
+  text-align: center;
+  padding: 30px 0;
+  border-bottom: 2px solid #b8005c; /* red accent line */
+  margin-bottom: 30px;
+}
+
+.hero h1 {
+  color: #e0006c; /* Gengar red/pink accent */
+  margin-bottom: 5px;
+}
+
+.hero p {
+  color: #c9b8e0;
+}
+
+.source-note {
+  font-size: 0.85rem;
+  margin-top: 8px;
+  color: #ffcc66;
+}
+
+.source-note-ok {
+  color: #7be0a0;
+}
+
+h2 {
+  color: #e0006c;
+  border-left: 4px solid #6a0dad;
+  padding-left: 10px;
+}
+
+.status-message {
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 1.2rem;
+}
+
+.status-message.error {
+  color: #ff6b6b;
+}
+
+.placeholder-note {
+  background: #2a1645;
+  padding: 15px;
+  border-radius: 8px;
+  color: #c9b8e0;
+}
+
+.placeholder-note code {
+  color: #ffb3d9;
+}
+
+/* CARD GRID
+   auto-fill + minmax lets the grid automatically fit as many columns
+   as space allows, rather than a fixed column count — useful here since
+   the number of cards per set varies a lot (some sets have 1 Gengar card,
+   others have several). */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.card-tile {
+  background: #2a1645;
+  border: 1px solid #6a0dad;
+  border-radius: 10px;
+  padding: 12px;
+  text-align: center;
+  transition: transform 0.15s ease;
+}
+
+.card-tile:hover {
+  transform: translateY(-4px);
+  border-color: #e0006c;
+}
+
+.card-tile img {
+  max-width: 100%;
+  border-radius: 6px;
+}
+
+.card-tile h3 {
+  margin: 10px 0 2px;
+  font-size: 0.95rem;
+}
+
+.set-name {
+  font-size: 0.8rem;
+  color: #c9b8e0;
+  margin: 2px 0;
+}
+
+.card-number {
+  font-size: 0.85rem;
+  color: #ffcc66;
+  font-weight: 600;
+  margin: 2px 0;
+}
+
+.variant-label {
+  font-size: 0.75rem;
+  color: #c9b8e0;
+  font-style: italic;
+  margin: 2px 0;
+}
+
+.price {
+  font-weight: bold;
+  color: #ffb3d9;
+  margin: 6px 0 2px;
+}
+
+.card-id {
+  font-size: 0.7rem;
+  color: #8a7aa0;
+}
+
+select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #6a0dad;
+  background: #2a1645;
+  color: #f5f0fa;
+  font-size: 1rem;
+}
