@@ -6,7 +6,7 @@ A purple/red themed site displaying Pokemon TCG Gengar cards with prices. Built 
 
 This mirrors a common real-world pattern: WordPress as a content/data management layer, React as the presentation layer consuming it via the REST API.
 
-**Card data** (names, images, sets) comes from the free Pokemon TCG API — automatically, no manual entry needed, covering all ~60+ expansion sets.
+**Card data** (names, images, sets) comes from the free Pokemon TCG API - automatically, no manual entry needed, covering all ~60+ expansion sets.
 
 **Price data** is managed through WordPress's admin screen, exposed via its REST API, and consumed by React. If WordPress isn't reachable, the app automatically falls back to a local static file so it never breaks.
 
@@ -120,17 +120,17 @@ useEffect(() => {
     });
 }, []);
 ```
-WordPress returns an array of post objects. This converts that array into a simple `{ cardId: price }` lookup object — the same shape as the local fallback file — so the rest of the component doesn't need to know or care which source the prices came from. If the fetch fails for any reason (WordPress not running, wrong URL, network issue), it falls back to `priceData.js` instead of breaking the page.
+WordPress returns an array of post objects. This converts that array into a simple `{ cardId: price }` lookup object - the same shape as the local fallback file - so the rest of the component doesn't need to know or care which source the prices came from. If the fetch fails for any reason (WordPress not running, wrong URL, network issue), it falls back to `priceData.js` instead of breaking the page.
 
-**Fetching all Gengar cards from the Pokemon TCG API:** unchanged from the original version — runs once on mount, fetches all cards matching "gengar" in the name.
+**Fetching all Gengar cards from the Pokemon TCG API:** unchanged from the original version, runs once on mount, fetches all cards matching "gengar" in the name.
 
-**Deriving the set list, filtering by set, and building Top 3:** unchanged from the original version — all still driven by data already in memory, no extra API calls needed when interacting with the UI.
+**Deriving the set list, filtering by set, and building Top 3:** unchanged from the original version all still driven by data already in memory, no extra API calls needed when interacting with the UI.
 
 ### `src/priceData.js`
-Now used only as a **fallback** if WordPress is unreachable, rather than the primary source — kept so the app degrades gracefully instead of breaking.
+Now used only as a **fallback** if WordPress is unreachable, rather than the primary source kept so the app degrades gracefully instead of breaking.
 
 ### `src/App.css`
-Same purple/red Gengar theme as before, with a small addition: a status note in the header showing which price source is currently active (WordPress vs. fallback) — useful for debugging the connection, and a good visual cue during a demo.
+Same purple/red Gengar theme as before, with a small addition: a status note in the header showing which price source is currently active (WordPress vs. fallback), useful for debugging the connection, and a good visual cue during a demo.
 
 ---
 
